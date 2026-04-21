@@ -17,11 +17,11 @@ async function startServer() {
 
   // API Route: Get OAuth URL
   app.get("/api/auth/url", (req, res) => {
-    const appId = process.env.VITE_OCEAN_ENGINE_APP_ID;
+    const appId = (req.query.app_id as string) || process.env.VITE_OCEAN_ENGINE_APP_ID;
     const redirectUri = `${req.protocol}://${req.get("host")}/auth/callback`;
     
     if (!appId) {
-      return res.status(500).json({ error: "OCEAN_ENGINE_APP_ID is not configured in environment" });
+      return res.status(400).json({ error: "未检测到 AppID。请在界面填写或配置环境变量 VITE_OCEAN_ENGINE_APP_ID。" });
     }
 
     // Ocean Engine OAuth URL

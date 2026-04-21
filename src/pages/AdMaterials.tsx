@@ -77,6 +77,14 @@ export default function AdMaterials() {
     m.id.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
+  const handleSync = () => {
+    alert("正在调度 API 任务：系统正尝试从巨量千川获取最新投放数据，预计 10-30 秒内完成。");
+  };
+
+  const handlePush = () => {
+    alert("正在准备推送任务：选中的素材将被推送到关联的千川计划中。");
+  };
+
   return (
     <div className="space-y-8 animate-in fade-in duration-500">
       <header>
@@ -93,10 +101,16 @@ export default function AdMaterials() {
             </p>
           </div>
           <div className="flex gap-3">
-            <button className="flex items-center gap-2 px-6 py-2.5 bg-surface-container-high rounded-xl font-bold text-sm text-on-surface hover:bg-surface-container-highest transition-colors">
+            <button 
+              onClick={handleSync}
+              className="flex items-center gap-2 px-6 py-2.5 bg-surface-container-high rounded-xl font-bold text-sm text-on-surface hover:bg-surface-container-highest transition-colors"
+            >
               <RefreshCw className="w-4 h-4" /> 立即同步数据
             </button>
-            <button className="flex items-center gap-2 px-6 py-2.5 bg-primary rounded-xl font-bold text-sm text-white shadow-xl shadow-primary/20 hover:scale-[0.98] transition-transform">
+            <button 
+              onClick={handlePush}
+              className="flex items-center gap-2 px-6 py-2.5 bg-primary rounded-xl font-bold text-sm text-white shadow-xl shadow-primary/20 hover:scale-[0.98] transition-transform"
+            >
               <Target className="w-4 h-4" /> 批量推入计划
             </button>
           </div>

@@ -21,7 +21,7 @@ const navItems = [
   { icon: Sparkles, label: "创意中心", path: "/creative" },
   { icon: Rocket, label: "投放管理", path: "/campaigns" },
   { icon: BarChart3, label: "数据中心", path: "/data" },
-  { icon: Users, label: "人员管理", path: "/team" },
+  { icon: Users, label: "团队协作", path: "/team" },
   { icon: Settings, label: "设置", path: "/settings" },
 ];
 
