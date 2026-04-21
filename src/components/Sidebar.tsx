@@ -1,20 +1,23 @@
 import { NavLink } from "react-router-dom";
 import { 
   LayoutDashboard, 
+  FolderKanban,
   Library, 
   Sparkles, 
   Rocket, 
   BarChart3, 
   Users, 
   Settings,
-  PlusCircle,
-  Cpu
+  Cpu,
+  Target
 } from "lucide-react";
 import { cn } from "@/src/lib/utils";
 
 const navItems = [
   { icon: LayoutDashboard, label: "控制台", path: "/" },
-  { icon: Library, label: "素材库", path: "/materials" },
+  { icon: FolderKanban, label: "项目管理", path: "/projects" },
+  { icon: Library, label: "拍摄素材库", path: "/materials" },
+  { icon: Target, label: "投放素材", path: "/ad-materials" },
   { icon: Sparkles, label: "创意中心", path: "/creative" },
   { icon: Rocket, label: "投放管理", path: "/campaigns" },
   { icon: BarChart3, label: "数据中心", path: "/data" },
@@ -53,11 +56,11 @@ export default function Sidebar() {
         ))}
       </nav>
 
-      <div className="p-6">
-        <button className="w-full bg-gradient-to-br from-primary to-primary-container text-white py-4 rounded-xl font-bold flex items-center justify-center gap-2 shadow-lg shadow-primary/20 hover:scale-[0.98] transition-transform duration-200">
-          <PlusCircle className="w-5 h-5" />
-          上传素材
-        </button>
+      <div className="p-6 mt-auto border-t border-outline-variant/10">
+        <div className="flex items-center gap-3 px-2">
+          <div className="w-2 h-2 rounded-full bg-secondary animate-pulse"></div>
+          <span className="text-xs font-bold text-outline">系统运行正常</span>
+        </div>
       </div>
     </aside>
   );
